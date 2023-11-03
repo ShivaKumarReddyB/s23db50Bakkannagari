@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  h2 Some of the Images of Vehicles 
+  - var image_names = ["car1.jpeg", "car2.jpeg", "car3.jpeg","car4.jpeg", "car5.jpeg"];
+    div(style="display:flex")
+     - for(let j=0;j<3;j++){
+        - let rdx=Math.floor(Math.random()*5)
+        div(style="border : 2px solid black; height:300px; width:300px; margin-left: 15px")
+          img(src=`/images/${image_names[rdx]}` alt=`${rdz}`  width="100%")
+     - }
