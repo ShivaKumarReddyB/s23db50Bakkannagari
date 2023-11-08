@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var Costume = require("./models/costume");
+var Vehicle = require("./models/vehicles");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -39,8 +39,7 @@ mongoose.connect(connectionString, {
   useUnifiedTopology: true
 });
 
-/*
-  only run to get screen shot 4
+/* only run to get screen shot 4
 //Get the default connection
 var db = mongoose.connection;
 //Bind connection to error event
@@ -53,11 +52,11 @@ db.once("open", function () {
 //server start
 async function recreateDB() {
   // Delete everything
-  await Costume.deleteMany();
-  let instance1 = new Costume({
-    costume_type: "ghost",
-    size: "large",
-    cost: 15.4
+  await Vehicle.deleteMany();
+  let instance1 = new Vehicle({
+    model: "Sedan",
+    color: "Blue",
+    year: 2020
   });
   instance1
     .save()
