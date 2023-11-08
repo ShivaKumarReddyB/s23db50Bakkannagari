@@ -52,11 +52,11 @@ db.once("open", function () {
 //server start
 async function recreateDB() {
   // Delete everything
-  await Vehicle.deleteMany();
+  // await Vehicle.deleteMany();
   let instance1 = new Vehicle({
-    model: "Sedan",
-    color: "Blue",
-    year: 2020
+    model: "Truck",
+    color: "Black",
+    year: 2022
   });
   instance1
     .save()
