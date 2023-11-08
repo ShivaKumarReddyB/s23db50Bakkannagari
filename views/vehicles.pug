@@ -6,12 +6,6 @@ block content
 
   .container-fluid
   .row
-    -
-      const results = [
-        { model: 'Sedan', year: 2020, color: 'Blue' },
-        { model: 'SUV', year: 2019, color: 'Red' },
-        { model: 'Truck', year: 2022, color: 'Black' }
-      ]
     -  
     each vehicle,idx in results 
      .col-sm-2(onclick=`buy(${idx})`)
