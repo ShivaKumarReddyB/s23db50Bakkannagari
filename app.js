@@ -39,7 +39,7 @@ mongoose.connect(connectionString, {
   useUnifiedTopology: true
 });
 
-/* only run to get screen shot 4
+// /* only run to get screen shot 4
 //Get the default connection
 var db = mongoose.connection;
 //Bind connection to error event
@@ -52,13 +52,40 @@ db.once("open", function () {
 //server start
 async function recreateDB() {
   // Delete everything
-  // await Vehicle.deleteMany();
+  await Vehicle.deleteMany();
   let instance1 = new Vehicle({
-    model: "Truck",
-    color: "Black",
-    year: 2022
+    model: "Sedan",
+    color: "Red",
+    year: 2021
   });
   instance1
+    .save()
+    .then((doc) => {
+      console.log("First object saved");
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  let instance2 = new Vehicle({
+    model: "Suv",
+    color: "Green",
+    year: 2022
+  });
+  instance2
+    .save()
+    .then((doc) => {
+      console.log("First object saved");
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  let instance3 = new Vehicle({
+    model: "Truck",
+    color: "Blue",
+    year: 2022
+  });
+  instance3
     .save()
     .then((doc) => {
       console.log("First object saved");
@@ -71,8 +98,6 @@ let reseed = true;
 if (reseed) {
   recreateDB();
 }
-
-*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
