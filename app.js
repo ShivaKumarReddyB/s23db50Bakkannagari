@@ -50,54 +50,54 @@ db.once("open", function () {
 
 // We can seed the collection if needed on
 //server start
-async function recreateDB() {
-  // Delete everything
-  await Vehicle.deleteMany();
-  let instance1 = new Vehicle({
-    model: "Sedan",
-    color: "Red",
-    year: 2021
-  });
-  instance1
-    .save()
-    .then((doc) => {
-      console.log("First object saved");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+// async function recreateDB() {
+//   // Delete everything
+//   await Vehicle.deleteMany();
+//   let instance1 = new Vehicle({
+//     model: "Sedan",
+//     color: "Red",
+//     year: 2021
+//   });
+//   instance1
+//     .save()
+//     .then((doc) => {
+//       console.log("First object saved");
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
 
-  let instance2 = new Vehicle({
-    model: "Suv",
-    color: "Green",
-    year: 2022
-  });
-  instance2
-    .save()
-    .then((doc) => {
-      console.log("First object saved");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  let instance3 = new Vehicle({
-    model: "Truck",
-    color: "Blue",
-    year: 2022
-  });
-  instance3
-    .save()
-    .then((doc) => {
-      console.log("First object saved");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
-let reseed = true;
-if (reseed) {
-  recreateDB();
-}
+//   let instance2 = new Vehicle({
+//     model: "Suv",
+//     color: "Green",
+//     year: 2022
+//   });
+//   instance2
+//     .save()
+//     .then((doc) => {
+//       console.log("First object saved");
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+//   let instance3 = new Vehicle({
+//     model: "Truck",
+//     color: "Blue",
+//     year: 2022
+//   });
+//   instance3
+//     .save()
+//     .then((doc) => {
+//       console.log("First object saved");
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
+// let reseed = true;
+// if (reseed) {
+//   recreateDB();
+// }
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
