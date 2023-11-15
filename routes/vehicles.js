@@ -11,8 +11,8 @@ router.get("/", vehicleControllers.vehicle_view_all_Page);
 router.get("/detail", vehicleControllers.vehicle_view_one_Page);
 /* GET create vehicle page */
 router.get("/create", vehicleControllers.vehicle_create_Page);
-// /* GET create update page */
-// router.get("/update/:id", vehicleControllers.vehicle_update_Page);
+/* GET create update page */
+router.get("/update", vehicleControllers.vehicle_update_Page);
 // /* GET delete vehicle page */
 // router.get("/delete/:id", vehicleControllers.vehicle_delete_Page);
 

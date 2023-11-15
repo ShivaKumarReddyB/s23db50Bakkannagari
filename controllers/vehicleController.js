@@ -105,7 +105,25 @@ exports.vehicle_view_one_Page = async function (req, res) {
 exports.vehicle_create_Page = function (req, res) {
   console.log("create view");
   try {
-    res.render("vehicleCreate", { title: "Costume Create" });
+    res.render("vehicleCreate", { title: "Vehicle Create" });
+  } catch (err) {
+    res.status(500);
+    res.send(`{'error': '${err}'}`);
+  }
+};
+
+// Handle building the view for updating a costume.
+// query provides the id
+exports.vehicle_update_Page = async function (req, res) {
+  console.log("update view for item " + req.query.id);
+  try {
+    let result = await Vehicles.findById(req.query.id);
+    if (!result) {
+      // Handle the case where the instance with the given ID doesn't exist
+      res.status(404).send(`No instance to delete`);
+      return;
+    }
+    res.render("vehicleUpdate", { title: "Vehicle Update", toShow: result });
   } catch (err) {
     res.status(500);
     res.send(`{'error': '${err}'}`);

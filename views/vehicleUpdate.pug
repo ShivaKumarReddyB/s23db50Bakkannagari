@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    h1= title
+
+    if (toShow == null)
+        h2 No instance to delete
+    else
+        - let vehicleid = toShow._id
+        - let model = toShow.model
+        - let color = toShow.color
+        - let year = toShow.year
+        console.log(toShow)
+
+        div.row(class='mb-2')
+        div.mr-1 ID is
+        div #{vehicleid}
+        - let actionid = "/resource/vehicles/" + vehicleid
+
+        form(id='vehicleForm', action=actionid , method="PUT")
+            div.form-group
+                label.vehicleAttr(for='model') Vehicle Name
+                input#model(type='text', name='model', value=model)
+            div.form-group
+                label.vehicleAttr(for='color') Vehicle Brand
+                input#color(type='text', name='color', value=color)
+            div.form-group
+                label.vehicleAttr(for='year') Vehicle Year
+                input#year(type='number', name='year', value=year)
+            input(type="submit")
+
+        script.
+            document.forms['vehicleForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                alert("Save succeded")
+                // TODO handle body
+                }).catch((error) => {
+                // TODO handle error
+                alert("Save failed " + error )
+                });
+            });
