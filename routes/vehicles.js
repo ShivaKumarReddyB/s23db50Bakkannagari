@@ -14,6 +14,6 @@ router.get("/create", vehicleControllers.vehicle_create_Page);
 /* GET create update page */
 router.get("/update", vehicleControllers.vehicle_update_Page);
 // /* GET delete vehicle page */
-// router.get("/delete/:id", vehicleControllers.vehicle_delete_Page);
+router.get("/delete", vehicleControllers.vehicle_delete_Page);
 
 module.exports = router;
