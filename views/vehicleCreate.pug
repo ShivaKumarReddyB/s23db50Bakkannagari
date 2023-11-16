@@ -6,14 +6,14 @@ block content
     form(id='vehicleForm', action="/resource/vehicles", method="POST")
         div.form-group
             label.vehicleAttr(for='vehicle_model') Vehicle Model
-            input#vehicle_model(type='text', name='model')
+            input#vehicle_model(type='text', name='model', class='form-control')
         div.form-group
             label.vehicleAttr(for='vehicle_color') Vehicle Color
-            input#vehicle_color(type='text', name='color')
+            input#vehicle_color(type='text', name='color', class='form-control')
         div.form-group
             label.vehicleAttr(for='vehicle_year') Vehicle Year
-            input#vehicle_year(type='number', name='year')
-        input(type="submit")
+            input#vehicle_year(type='number', name='year', class='form-control')
+        input(type="submit", class='btn btn-primary')
 
     script.
         document.forms['vehicleForm'].addEventListener('submit', (event) => {

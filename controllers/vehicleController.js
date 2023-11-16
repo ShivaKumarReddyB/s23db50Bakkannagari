@@ -117,10 +117,10 @@ exports.vehicle_create_Page = function (req, res) {
 exports.vehicle_update_Page = async function (req, res) {
   console.log("update view for item " + req.query.id);
   try {
-    let result = await Vehicles.findById(req.query.id);
+    let result = await Vehicle.findById(req.query.id);
     if (!result) {
       // Handle the case where the instance with the given ID doesn't exist
-      res.status(404).send(`No instance to delete`);
+      res.status(404).send(`No instance to update`);
       return;
     }
     res.render("vehicleUpdate", { title: "Vehicle Update", toShow: result });

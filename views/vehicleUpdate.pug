@@ -4,7 +4,7 @@ block content
     h1= title
 
     if (toShow == null)
-        h2 No instance to delete
+        h2 No instance to update
     else
         - let vehicleid = toShow._id
         - let model = toShow.model
@@ -20,14 +20,14 @@ block content
         form(id='vehicleForm', action=actionid , method="PUT")
             div.form-group
                 label.vehicleAttr(for='model') Vehicle Name
-                input#model(type='text', name='model', value=model)
+                input#model(type='text', name='model', value=model,  class='form-control')
             div.form-group
                 label.vehicleAttr(for='color') Vehicle Brand
-                input#color(type='text', name='color', value=color)
+                input#color(type='text', name='color', value=color,  class='form-control')
             div.form-group
                 label.vehicleAttr(for='year') Vehicle Year
-                input#year(type='number', name='year', value=year)
-            input(type="submit")
+                input#year(type='number', name='year', value=year,  class='form-control')
+            input(type="submit", class='btn btn-primary')
 
         script.
             document.forms['vehicleForm'].addEventListener('submit', (event) => {
