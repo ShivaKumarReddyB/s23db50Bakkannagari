@@ -55,6 +55,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
+// passport config
+// Use the existing connection
+// The Account model
+var Account = require("./models/account");
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
