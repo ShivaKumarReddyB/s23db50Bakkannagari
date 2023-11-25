@@ -11,8 +11,18 @@ router.get("/", vehicleControllers.vehicle_view_all_Page);
 router.get("/detail", vehicleControllers.vehicle_view_one_Page);
 /* GET create vehicle page */
 router.get("/create", vehicleControllers.vehicle_create_Page);
+
+// A little function to check if we have an authorized user and continue on
+//or;
+// redirect to login.
+const secured = (req, res, next) => {
+  if (req.user) {
+    return next();
+  }
+  res.redirect("/login");
+};
 /* GET create update page */
-router.get("/update", vehicleControllers.vehicle_update_Page);
+router.get("/update", secured, vehicleControllers.vehicle_update_Page);
 // /* GET delete vehicle page */
 router.get("/delete", vehicleControllers.vehicle_delete_Page);
 
