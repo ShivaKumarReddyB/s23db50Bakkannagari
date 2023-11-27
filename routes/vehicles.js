@@ -10,7 +10,7 @@ router.get("/", vehicleControllers.vehicle_view_all_Page);
 /* GET detail Vehicle page */
 router.get("/detail", vehicleControllers.vehicle_view_one_Page);
 /* GET create vehicle page */
-router.get("/create", vehicleControllers.vehicle_create_Page);
+router.get("/create", secured, vehicleControllers.vehicle_create_Page);
 
 // A little function to check if we have an authorized user and continue on
 //or;
@@ -24,6 +24,6 @@ const secured = (req, res, next) => {
 /* GET create update page */
 router.get("/update", secured, vehicleControllers.vehicle_update_Page);
 // /* GET delete vehicle page */
-router.get("/delete", vehicleControllers.vehicle_delete_Page);
+router.get("/delete", secured, vehicleControllers.vehicle_delete_Page);
 
 module.exports = router;
