@@ -37,7 +37,7 @@ router.post("/register", function (req, res) {
           });
         }
       });
-      console.log("Sucess, redirect");
+      console.log("Success, redirect");
       res.redirect("/");
     })
     .catch(function (err) {
